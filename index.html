@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW - Modele</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .model-card:hover .model-image {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+        .active-tab {
+            border-bottom: 3px solid #1c69d4;
+            color: #1c69d4;
+        }
+        .future-section {
+            background: linear-gradient(135deg, #1c69d4 0%, #003366 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://www.bmw.com/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="Sigla BMW" class="h-10">
+                <span class="ml-2 text-xl font-bold">BMW</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="servicii.html" class="font-medium hover:text-blue-600">Servicii</a>
+            </nav>
+            <button class="md:hidden text-gray-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">BMW. Viitorul automobilelor</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Descoperă inovația și performanța care definesc generația viitoare de vehicule BMW</p>
+        </div>
+    </div>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">Gama de Modele BMW</h2>
+            <div class="flex justify-center mb-12">
+                <div class="flex space-x-1 overflow-x-auto pb-2">
+                    <button onclick="filterModels('all')" class="tab-btn px-6 py-2 font-medium active-tab">Toate Modelele</button>
+                    <button onclick="filterModels('sedan')" class="tab-btn px-6 py-2 font-medium">Sedan</button>
+                    <button onclick="filterModels('suv')" class="tab-btn px-6 py-2 font-medium">SUV-uri</button>
+                    <button onclick="filterModels('sports')" class="tab-btn px-6 py-2 font-medium">Sport</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden sedan">
+                    <div class="model-image h-48 bg-gray-200 flex items-center justify-center">
+                        <img src="BMW_G20_(2022)_IMG_7316.jpg" alt="BMW Seria 3" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">BMW Seria 3 Sedan</h3>
+                        <p class="text-gray-600 mb-4">Preț de la $43,800</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Sedan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden suv">
+                    <div class="model-image h-48 bg-gray-200 flex items-center justify-center">
+                        <img src="BMW_X5_(G05)_China_(9).jpg" alt="BMW X5" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">BMW X5</h3>
+                        <p class="text-gray-600 mb-4">Preț de la $61,600</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">SUV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden sports">
+                    <div class="model-image h-48 bg-gray-200 flex items-center justify-center">
+                        <img src="bmw-m8-coupe-onepager-sp-desktop.jpg" alt="BMW M8" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">BMW M8 Coupe</h3>
+                        <p class="text-gray-600 mb-4">Preț de la $133,000</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Sport</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden sedan">
+                    <div class="model-image h-48 bg-gray-200 flex items-center justify-center">
+                        <img src="BMW_G30_FL_IMG_5351.jpg" alt="BMW Seria 5" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">BMW Seria 5 Sedan</h3>
+                        <p class="text-gray-600 mb-4">Preț de la $54,200</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Sedan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden suv">
+                    <div class="model-image h-48 bg-gray-200 flex items-center justify-center">
+                        <img src="P90577948_highRes_bmw-x3.jpg" alt="BMW X3" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">BMW X3</h3>
+                        <p class="text-gray-600 mb-4">Preț de la $43,700</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">SUV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden sports">
+                    <div class="model-image h-48 bg-gray-200 flex items-center justify-center">
+                        <img src="1680x756 10.jpg" alt="BMW M4" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">BMW M4 Coupe</h3>
+                        <p class="text-gray-600 mb-4">Preț de la $74,700</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Sport</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="future-section py-20 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Tehnologia BMW pentru viitor</h2>
+                <p class="text-xl mb-8">Descoperă cum BMW redefinește mobilitatea prin inovație și sustenabilitate, creând vehicule care combină performanța cu responsabilitatea ambientală.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+                        <i class="fas fa-bolt text-3xl mb-4 text-blue-300"></i>
+                        <h3 class="text-xl font-bold mb-2">Electrificare</h3>
+                        <p>Gama noastră în creștere de vehicule electrice oferă performanță fără compromisuri.</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+                        <i class="fas fa-robot text-3xl mb-4 text-blue-300"></i>
+                        <h3 class="text-xl font-bold mb-2">Conducere autonomă</h3>
+                        <p>Sisteme avansate care transformă experiența de condus.</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg backdrop-blur-sm">
+                        <i class="fas fa-leaf text-3xl mb-4 text-blue-300"></i>
+                        <h3 class="text-xl font-bold mb-2">Sustenabilitate</h3>
+                        <p>Materiale reciclate și procese de producție eco-friendly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://www.bmw.com/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="Sigla BMW" class="h-8">
+                        <span class="ml-2 text-lg font-bold">BMW</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">Viitorul mobilității începe azi</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 BMW. </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterModels(category) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab');
+            });
+            
+            event.target.classList.add('active-tab');
+            
+            const models = document.querySelectorAll('.model-card');
+            models.forEach(model => {
+                if (category === 'all' || model.classList.contains(category)) {
+                    model.style.display = 'block';
+                } else {
+                    model.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</html>
