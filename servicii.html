@@ -5,141 +5,364 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicii Mecanice BMW</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            100: '#E5E7EB',
+                            200: '#D1D5DB',
+                            300: '#9CA3AF',
+                            400: '#6B7280',
+                            500: '#4B5563',
+                            600: '#374151',
+                            700: '#1F2937',
+                            800: '#111827',
+                            900: '#0F172A',
+                        },
+                        bmw: {
+                            blue: '#0066B1',
+                            light: '#6CADDF',
+                            dark: '#003865'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #0066B1;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="font-sans bg-gray-50">
-    <header class="bg-white shadow-md">
+<body class="font-sans bg-dark-900 text-dark-100">
+    <header class="bg-dark-800 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="https://www.bmw.com/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="Logo BMW" class="h-10">
-                <span class="ml-2 text-xl font-bold">BMW</span>
+                <span class="ml-2 text-xl font-bold text-bmw-blue">BMW Service</span>
             </div>
-            <button class="md:hidden text-gray-600">
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-dark-200 hover:text-bmw-blue">Acasă</a>
+            </nav>
+            <button class="md:hidden text-dark-200">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
     </header>
-  
 
-    <div class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-3xl font-bold mb-4">Servicii Specializate BMW</h1>
-            <p class="text-lg mb-6">Îngrijire expertă pentru BMW-ul tău</p>
+    <div class="relative bg-gradient-to-b from-bmw-dark to-dark-800 py-20 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-[url('https://www.bmw-m.com/content/dam/bmw/marketBMW_M/common/topics/magazine-article-pool/2021/bmw-m3-m4-csl/bmw-m4-csl-sp-desktop.jpg')] bg-cover bg-center"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Servicii Specializate <span class="text-bmw-blue">BMW</span></h1>
+            <p class="text-xl md:text-2xl mb-8 text-dark-200">Experiență premium pentru performanță maximă</p>
+            
         </div>
     </div>
 
-    <div id="services" class="py-12 bg-white">
+    <div id="services" class="py-16 bg-dark-800">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-8">Serviciile noastre pentru BMW</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-white">Serviciile noastre <span class="text-bmw-blue">premium</span></h2>
+                <p class="text-dark-300 max-w-2xl mx-auto">Folosim doar piese originale și echipamente specializate pentru a menține performanța BMW-ului tău la nivelul așteptat.</p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-gray-50 p-6 rounded border">
-                    <div class="flex items-center justify-center h-12 w-12 rounded bg-blue-600 text-white mb-4">
-                        <i class="fas fa-oil-can text-xl"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-dark-700 p-6 rounded-lg border border-dark-600">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-bmw-blue text-white mb-4">
+                        <i class="fas fa-oil-can text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Schimb ulei</h3>
-                    <p class="text-gray-600 mb-4">
-                        Schimb complet de ulei și filtru folosind uleiuri aprobate de BMW.
+                    <h3 class="text-xl font-semibold mb-3 text-white">Schimb ulei</h3>
+                    <p class="text-dark-300 mb-4">
+                        Schimb complet de ulei și filtru folosind uleiuri aprobate de BMW pentru performanță optimă.
                     </p>
-                    <div class="flex justify-between">
-                        <span class="text-blue-600 font-bold">De la $129</span>
-                    </div>
+                    <span class="text-bmw-blue font-bold text-lg">De la $129</span>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded border">
-                    <div class="flex items-center justify-center h-12 w-12 rounded bg-blue-600 text-white mb-4">
-                        <i class="fas fa-brake-warning text-xl"></i>
+                <div class="bg-dark-700 p-6 rounded-lg border border-dark-600">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-bmw-blue text-white mb-4">
+                        <i class="fas fa-brake-warning text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Serviciu frâne</h3>
-                    <p class="text-gray-600 mb-4">
-                        Inspectare și serviciu complet pentru frâne.
+                    <h3 class="text-xl font-semibold mb-3 text-white">Serviciu frâne</h3>
+                    <p class="text-dark-300 mb-4">
+                        Inspectare completă și serviciu pentru sistemul de frânare, inclusiv discuri și plăcuțe.
                     </p>
-                    <div class="flex justify-between">
-                        <span class="text-blue-600 font-bold">De la $299</span>
-                    </div>
+                    <span class="text-bmw-blue font-bold text-lg">De la $299</span>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded border">
-                    <div class="flex items-center justify-center h-12 w-12 rounded bg-blue-600 text-white mb-4">
-                        <i class="fas fa-car-battery text-xl"></i>
+                <div class="bg-dark-700 p-6 rounded-lg border border-dark-600">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-bmw-blue text-white mb-4">
+                        <i class="fas fa-car-battery text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Serviciu baterie</h3>
-                    <p class="text-gray-600 mb-4">
-                        Serviciu și înlocuire specializată pentru baterii BMW.
+                    <h3 class="text-xl font-semibold mb-3 text-white">Serviciu baterie</h3>
+                    <p class="text-dark-300 mb-4">
+                        Testare, încărcare și înlocuire baterie cu opțiuni AGM pentru modelele cu start-stop.
                     </p>
-                    <div class="flex justify-between">
-                        <span class="text-blue-600 font-bold">De la $249</span>
-                    </div>
+                    <span class="text-bmw-blue font-bold text-lg">De la $249</span>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded border">
-                    <div class="flex items-center justify-center h-12 w-12 rounded bg-blue-600 text-white mb-4">
-                        <i class="fas fa-tire text-xl"></i>
+                <div class="bg-dark-700 p-6 rounded-lg border border-dark-600">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-bmw-blue text-white mb-4">
+                        <i class="fas fa-tire text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Serviciu anvelope</h3>
-                    <p class="text-gray-600 mb-4">
-                        Aliniere roți și servicii pentru anvelope.
+                    <h3 class="text-xl font-semibold mb-3 text-white">Serviciu anvelope</h3>
+                    <p class="text-dark-300 mb-4">
+                        Aliniere roți 3D, echilibrare și schimb anvelope cu montare fără contact.
                     </p>
-                    <div class="flex justify-between">
-                        <span class="text-blue-600 font-bold">De la $179</span>
-                    </div>
+                    <span class="text-bmw-blue font-bold text-lg">De la $179</span>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded border">
-                    <div class="flex items-center justify-center h-12 w-12 rounded bg-blue-600 text-white mb-4">
-                        <i class="fas fa-microchip text-xl"></i>
+                <div class="bg-dark-700 p-6 rounded-lg border border-dark-600">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-bmw-blue text-white mb-4">
+                        <i class="fas fa-microchip text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Diagnosticare</h3>
-                    <p class="text-gray-600 mb-4">
-                        Servicii avansate de diagnosticare BMW.
+                    <h3 class="text-xl font-semibold mb-3 text-white">Diagnosticare</h3>
+                    <p class="text-dark-300 mb-4">
+                        Scanare completă cu ISTA/D pentru identificarea tuturor codurilor de eroare și probleme.
                     </p>
-                    <div class="flex justify-between">
-                        <span class="text-blue-600 font-bold">De la $149</span>
-                    </div>
+                    <span class="text-bmw-blue font-bold text-lg">De la $149</span>
                 </div>
                 
-                <div class="bg-gray-50 p-6 rounded border">
-                    <div class="flex items-center justify-center h-12 w-12 rounded bg-blue-600 text-white mb-4">
-                        <i class="fas fa-tools text-xl"></i>
+                <div class="bg-dark-700 p-6 rounded-lg border border-dark-600">
+                    <div class="flex items-center justify-center h-14 w-14 rounded-full bg-bmw-blue text-white mb-4">
+                        <i class="fas fa-tools text-2xl"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2">Întreținere</h3>
-                    <p class="text-gray-600 mb-4">
-                        Pachete complete de întreținere BMW.
+                    <h3 class="text-xl font-semibold mb-3 text-white">Întreținere</h3>
+                    <p class="text-dark-300 mb-4">
+                        Pachete complete de întreținere conform specificațiilor producătorului.
                     </p>
-                    <div class="flex justify-between">
-                        <span class="text-blue-600 font-bold">De la $499</span>
+                    <span class="text-bmw-blue font-bold text-lg">De la $499</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="py-16 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="service-1038x465-1.jpg" 
+                         alt="BMW Service" 
+                         class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-white">Despre <span class="text-bmw-blue">Serviciile Noastre</span></h2>
+                    <p class="text-dark-300 mb-4">
+                        Suntem specializați în întreținerea și repararea vehiculelor BMW, cu peste 15 ani de experiență în domeniu.
+                    </p>
+                    <p class="text-dark-300 mb-4">
+                        Folosim doar piese originale BMW și echipamente specializate pentru a asigura că vehiculul tău primește îngrijirea pe care o merită.
+                    </p>
+                    <div class="space-y-3 mt-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-bmw-blue rounded-full p-1">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                            <p class="ml-3 text-dark-200">Mecanici certificați BMW</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-bmw-blue rounded-full p-1">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                            <p class="ml-3 text-dark-200">Echipamente de diagnosticare ultima generație</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-bmw-blue rounded-full p-1">
+                                <i class="fas fa-check text-white text-xs"></i>
+                            </div>
+                            <p class="ml-3 text-dark-200">Piese originale și consumabile premium</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="contact" class="py-12 bg-white">
+    <div id="contact" class="py-16 bg-dark-800">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center mb-8">Contactează-ne</h2>
-                <div>
-                    <form class="bg-gray-50 p-6 rounded border">
-                        <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Nume</label>
-                            <input type="text" class="w-full p-2 border rounded">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-white">Contactează-ne</h2>
+                <p class="text-dark-300 max-w-2xl mx-auto">Completează formularul de mai jos sau contactează-ne direct pentru a programa o programare.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="bg-dark-700 p-8 rounded-lg border border-dark-600">
+                        <div class="mb-6">
+                            <label class="block text-dark-200 mb-2 font-medium">Nume complet</label>
+                            <input type="text" class="w-full p-3 bg-dark-600 border border-dark-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-bmw-blue text-white">
                         </div>
                         
-                        <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Email</label>
-                            <input type="email" class="w-full p-2 border rounded">
+                        <div class="mb-6">
+                            <label class="block text-dark-200 mb-2 font-medium">Adresă email</label>
+                            <input type="email" class="w-full p-3 bg-dark-600 border border-dark-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-bmw-blue text-white">
                         </div>
                         
-                        <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Mesaj</label>
-                            <textarea class="w-full p-2 border rounded" rows="4"></textarea>
+                        <div class="mb-6">
+                            <label class="block text-dark-200 mb-2 font-medium">Model BMW</label>
+                            <select class="w-full p-3 bg-dark-600 border border-dark-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-bmw-blue text-white">
+                                <option>Selectează modelul</option>
+                                <option>Seria 1</option>
+                                <option>Serie 2</option>
+                                <option>Serie 3</option>
+                                <option>Serie 4</option>
+                                <option>Serie 5</option>
+                                <option>Serie 7</option>
+                                <option>Serie 8</option>
+                                <option>X1</option>
+                                <option>X3</option>
+                                <option>X5</option>
+                                <option>X7</option>
+                                <option>M Models</option>
+                                <option>Altele</option>
+                            </select>
                         </div>
                         
-                        <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded">
-                            Trimite Mesaj
+                        <div class="mb-6">
+                            <label class="block text-dark-200 mb-2 font-medium">Mesaj</label>
+                            <textarea class="w-full p-3 bg-dark-600 border border-dark-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-bmw-blue text-white" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-bmw-blue hover:bg-bmw-light text-white p-3 rounded-lg font-medium">
+                            Trimite Mesaj <i class="fas fa-paper-plane ml-2"></i>
                         </button>
                     </form>
                 </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-dark-700 p-8 rounded-lg border border-dark-600 h-full">
+                        <h3 class="text-xl font-bold mb-6 text-white">Informații de contact</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-bmw-blue rounded-full p-2">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-dark-200 font-medium">Adresă</h4>
+                                    <p class="text-dark-300">Strada Exemplu nr. 123, București</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-bmw-blue rounded-full p-2">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-dark-200 font-medium">Telefon</h4>
+                                    <p class="text-dark-300">+40 721 123 456</p>
+                                    <p class="text-dark-300">+40 31 123 4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-bmw-blue rounded-full p-2">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-dark-200 font-medium">Email</h4>
+                                    <p class="text-dark-300">contact@bmwservice.ro</p>
+                                    <p class="text-dark-300">service@bmwservice.ro</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-bmw-blue rounded-full p-2">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-dark-200 font-medium">Program</h4>
+                                    <p class="text-dark-300">Luni-Vineri: 08:00 - 18:00</p>
+                                    <p class="text-dark-300">Sâmbătă: 09:00 - 14:00</p>
+                                    <p class="text-dark-300">Duminică: Închis</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <footer class="bg-dark-900 py-8 border-t border-dark-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="https://www.bmw.com/etc.clientlibs/ds2-webcomponents/clientlibs/clientlib/resources/img/BMW_White_Logo.svg" alt="Logo BMW" class="h-8">
+                    <span class="ml-2 text-lg font-bold text-bmw-blue">BMW Service</span>
+                </div>
+                <div class="text-dark-400 text-sm">
+                    &copy; 2023 BMW Service 
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        html.classList.add(currentTheme);
+        
+        updateThemeIcon();
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateThemeIcon();
+        });
+        
+        function updateThemeIcon() {
+            if (html.classList.contains('dark')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
